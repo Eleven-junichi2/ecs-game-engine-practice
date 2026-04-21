@@ -1,3 +1,6 @@
+#ifndef VEC2_H
+#define VEC2_H
+
 template <typename T>
 class Vec2
 {
@@ -38,3 +41,5 @@ public:
         return Vec2(x / other.x, y / other.y);
     }
 };
+
+#endif
