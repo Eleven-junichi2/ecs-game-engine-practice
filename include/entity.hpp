@@ -9,7 +9,7 @@ class Entity
 {
     ComponentTuple m_components{};
     bool m_alive{true};
-    std::string m_tag{"default"};
+    std::string m_tag{};
     size_t m_id{0};
 
 public:
@@ -55,7 +55,7 @@ class EntityManager
     size_t m_totalEntites = 0;
 
 public:
-    EntityManager();
+    EntityManager() = default;
     void update()
     {
         for (auto &e : m_toAdd)

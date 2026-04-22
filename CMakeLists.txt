@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
 project(ecs-game-engine-practice LANGUAGES C CXX)
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_executable(ecs-game-engine-practice main.cpp)
 add_executable(Vec2_test tests/Vec2_test.cpp)
 add_executable(entity_test tests/entity_test.cpp)
