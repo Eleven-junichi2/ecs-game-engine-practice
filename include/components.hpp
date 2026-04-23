@@ -5,14 +5,22 @@ class Component
 {
 };
 
-class CTransform : Component
+struct CTransform : public Component
 {
-public:
-    Vec2<int> pos{0, 0};
-    Vec2<int> velocity{0, 0};
-    CTransform() = default;
-    CTransform(const Vec2<int> &pos, const Vec2<int> &velocity)
-        : pos{pos}, velocity{velocity} {}
+    Vec2<float> pos{0.0, 0.0};
+    Vec2<float> prev_pos{0.0, 0.0};
+    Vec2<float> velocity{0.0, 0.0};
+    Vec2<float> scale{1.0, 1.0};
+    float angle = 0;
 };
 
-using ComponentTuple = std::tuple<CTransform>;
+class CBoundingBox : public Component
+{
+public:
+    Vec2<float> size;
+    Vec2<float> half_size;
+    CBoundingBox(const Vec2<float> &s)
+        : size{s}, half_size{s.x / 2, s.y / 2} {}
+};
+
+using ComponentTuple = std::tuple<CTransform, CBoundingBox>;
